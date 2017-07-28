@@ -21,7 +21,9 @@ describe('myParseInt', function() {
   it("parses from a binary integer", function() {
     expect(mPI.myParseInt(100, 2)).to.eql(4);
   });
-
+  it("turns undefined into 86464843759093, because of parseInt's call to toString", function() {
+    expect(mPI.myParseInt(undefined, 36)).to.eql(86464843759093);
+  })
 });
 
 
