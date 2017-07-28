@@ -24,6 +24,12 @@ describe('myParseInt', function() {
   it("turns undefined into 86464843759093, because of parseInt's call to toString", function() {
     expect(mPI.myParseInt(undefined, 36)).to.eql(86464843759093);
   })
+  it("doesn't assume a `-` is an integer", function() {
+    expect(isNaN(mPI.myParseInt("-"))).to.eql(true);
+  })
+  it("returns NaN if passed an empty string", function() {
+    expect(isNaN(mPI.myParseInt(""))).to.eql(true);
+  })
 });
 
 
